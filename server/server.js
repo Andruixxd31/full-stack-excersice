@@ -1,8 +1,10 @@
 const express = require("express");
+const cors = require("cors")
 
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 app.get("/api/v1/hello", (req, res) => {
     try {
@@ -99,6 +101,6 @@ app.get("/api/v1/people/inactive", async (req, res) => {
     }
 })
 
-app.listen(3000, () => {
-    console.log("Server listening at port 3000");
+app.listen(3007, () => {
+    console.log("Server listening at port 3007");
 })
