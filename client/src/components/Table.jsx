@@ -10,8 +10,9 @@ const Table = () => {
             try {
                 const response = await fetch("http://localhost:3007/api/v1/people");
                 let data = await response.json();
-                setPeople(data)
-                setTableData(data)
+                // console.log(data.data.people);
+                setPeople(data.data.people)
+                setTableData(data.data.people)
             } catch (err) {
                 console.log(err)
             }
