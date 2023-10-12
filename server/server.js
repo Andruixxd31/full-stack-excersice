@@ -67,7 +67,7 @@ app.get("/api/v1/people/active", async (req, res) => {
                 results: Object.keys(active).length,
                 data: {
                     message: "found active people",
-                    active: active,
+                    people: active,
                 },
             });
 
@@ -103,7 +103,7 @@ app.get("/api/v1/people/inactive", async (req, res) => {
                 results: Object.keys(inactive).length,
                 data: {
                     message: "found inactive people",
-                    inactive: inactive,
+                    people: inactive,
                 },
             });
         }
