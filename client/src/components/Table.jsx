@@ -20,13 +20,13 @@ const Table = () => {
     }, [])
 
     const handleActive = () => {
-        setPeople(people.filter((person) => {
+        setPeople(tableData.filter((person) => {
             return person.status === "active"
         }))
     }
 
     const handleInactive = () => {
-        setPeople(people.filter((person) => {
+        setPeople(tableData.filter((person) => {
             return person.status === "inactive"
         }))
     }
