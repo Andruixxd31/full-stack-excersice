@@ -10,8 +10,9 @@ const Table = () => {
             try {
                 const response = await fetch("https://full-stack-excersice-andres-diaz-de-leons-projects.vercel.app/api/v1/people");
                 let data = await response.json();
-                setPeople(data)
-                setTableData(data)
+                // console.log(data.data.people);
+                setPeople(data.data.people)
+                setTableData(data.data.people)
             } catch (err) {
                 console.log(err)
             }
@@ -20,13 +21,13 @@ const Table = () => {
     }, [])
 
     const handleActive = () => {
-        setPeople(people.filter((person) => {
+        setPeople(tableData.filter((person) => {
             return person.status === "active"
         }))
     }
 
     const handleInactive = () => {
-        setPeople(people.filter((person) => {
+        setPeople(tableData.filter((person) => {
             return person.status === "inactive"
         }))
     }

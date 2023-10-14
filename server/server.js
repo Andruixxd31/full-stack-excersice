@@ -22,7 +22,24 @@ app.get("/api/v1/people", async (req, res) => {
     try {
         const people = await fetch("https://gorest.co.in/public/v2/users")
         const result = await people.json()
-        res.send(result);
+        if (Object.keys(result).length === 0) {
+            res.status(404).json({
+                status: "Items not found",
+                data: {
+                    message: "non active people",
+                },
+            });
+        } else {
+            res.status(200).json({
+                status: "Succesful",
+                results: Object.keys(result).length,
+                data: {
+                    message: "found active people",
+                    people: result,
+                },
+            });
+
+        }
     } catch (error) {
         res.status(500).json({
             status: "Unsuccesful",
@@ -32,7 +49,7 @@ app.get("/api/v1/people", async (req, res) => {
             },
         });
     }
-})
+});
 
 app.get("/api/v1/people/active", async (req, res) => {
     try {
@@ -54,7 +71,7 @@ app.get("/api/v1/people/active", async (req, res) => {
                 results: Object.keys(active).length,
                 data: {
                     message: "found active people",
-                    active: active,
+                    people: active,
                 },
             });
 
@@ -90,7 +107,7 @@ app.get("/api/v1/people/inactive", async (req, res) => {
                 results: Object.keys(inactive).length,
                 data: {
                     message: "found inactive people",
-                    inactive: inactive,
+                    people: inactive,
                 },
             });
         }
