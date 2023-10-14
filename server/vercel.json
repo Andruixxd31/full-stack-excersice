@@ -2,9 +2,14 @@
     "version": 2,
     "builds": [
         {
-            "src": "server.js",
+            "src": "*.js",
             "use": "@vercel/node"
         }
     ],
-    "cleanUrls": true
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/api/v1/hello"
+        }
+    ]
 }
