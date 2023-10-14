@@ -8,7 +8,7 @@ const Table = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("http://localhost:3007/api/v1/people");
+                const response = await fetch("https://full-stack-excersice-andres-diaz-de-leons-projects.vercel.app/api/v1/people");
                 let data = await response.json();
                 setPeople(data)
                 setTableData(data)

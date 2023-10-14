@@ -4,7 +4,11 @@ const cors = require("cors")
 const app = express();
 
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+    origin: ["https://full-stack-excersice-andres-diaz-de-leons-projects.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+}))
 
 app.get("/api/v1/hello", (req, res) => {
     try {
